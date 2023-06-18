@@ -32,4 +32,4 @@ aws rds restore-db-instance-from-db-snapshot \
     --storage-type gp2 \
     --db-subnet-group-name ${DB_SUBNET_GROUP_NAME} \
     --vpc-security-group-ids ${SECURITY_GROUP_ID} \
-    --no-publicly-accessible
+    --publicly-accessible
