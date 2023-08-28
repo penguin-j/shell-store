@@ -1,0 +1,104 @@
+PoolName: "dev-ocean-user-pool"
+Policies:
+    PasswordPolicy:
+        MinimumLength: 8
+        RequireUppercase: true
+        RequireLowercase: true
+        RequireNumbers: true
+        RequireSymbols: true
+        TemporaryPasswordValidityDays: 7
+# LambdaConfig:
+#     PreSignUp: ""
+#     CustomMessage: ""
+#     PostConfirmation: ""
+#     PreAuthentication: ""
+#     PostAuthentication: ""
+#     DefineAuthChallenge: ""
+#     CreateAuthChallenge: ""
+#     VerifyAuthChallengeResponse: ""
+#     PreTokenGeneration: ""
+#     UserMigration: ""
+#     CustomSMSSender:
+#         LambdaVersion: V1_0
+#         LambdaArn: ""
+#     CustomEmailSender:
+#         LambdaVersion: V1_0
+#         LambdaArn: ""
+#     KMSKeyID: ""
+# AutoVerifiedAttributes:
+#     - email
+AliasAttributes:
+    - preferred_username
+    - email
+# UsernameAttributes:
+#     - phone_number
+# SmsVerificationMessage: ""
+# EmailVerificationMessage: ""
+# EmailVerificationSubject: ""
+# VerificationMessageTemplate:
+#     SmsMessage: ""
+#     EmailMessage: ""
+#     EmailSubject: ""
+#     EmailMessageByLink: ""
+#     EmailSubjectByLink: ""
+#     DefaultEmailOption: CONFIRM_WITH_CODE
+# SmsAuthenticationMessage: ""
+# MfaConfiguration: "ON"
+# DeviceConfiguration:
+#     ChallengeRequiredOnNewDevice: true
+#     DeviceOnlyRememberedOnUserPrompt: true
+# EmailConfiguration:
+#     SourceArn: ""
+#     ReplyToEmailAddress: ""
+#     EmailSendingAccount: DEVELOPER
+#     From: ""
+#     ConfigurationSet: ""
+# SmsConfiguration:
+#     SnsCallerArn: ""
+#     ExternalId: ""
+# UserPoolTags:
+#     KeyName: ""
+AdminCreateUserConfig:
+    AllowAdminCreateUserOnly: false
+    # UnusedAccountValidityDays: 0
+    # InviteMessageTemplate:
+    #     SMSMessage: ""
+    #     EmailMessage: ""
+    #     EmailSubject: ""
+Schema:
+    -
+        Name: "sub"
+        AttributeDataType: String
+        DeveloperOnlyAttribute: false
+        Mutable: false
+        Required: true
+        StringAttributeConstraints:
+            MinLength: "1"
+            MaxLength: "2048"
+    -
+        Name: "preferred_username"
+        AttributeDataType: String
+        DeveloperOnlyAttribute: false
+        Mutable: false
+        Required: true
+        StringAttributeConstraints:
+            MinLength: "0"
+            MaxLength: "2048"
+    -
+        Name: "email"
+        AttributeDataType: String
+        DeveloperOnlyAttribute: false
+        Mutable: false
+        Required: true
+        StringAttributeConstraints:
+            MinLength: "0"
+            MaxLength: "2048"
+# UserPoolAddOns:
+#     AdvancedSecurityMode: AUDIT
+UsernameConfiguration:
+    CaseSensitive: true
+# AccountRecoverySetting:
+#     RecoveryMechanisms:
+#         -
+#             Priority: 0
+#             Name: verified_phone_number
